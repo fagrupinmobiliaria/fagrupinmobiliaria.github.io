@@ -1,102 +1,110 @@
-/* ==================== SECCIÓN COMPACTA CUENCA ==================== */
+/* ==================== ANUNCIO CUENCA - VERSIÓN BLANCA Y DORADA ==================== */
 .tb-compact-section {
-    padding: 4rem 0;
+    padding: 5rem 0;
     background-color: transparent;
     position: relative;
-    z-index: 5;
+    z-index: 10;
 }
 
 .tb-compact-card {
-    background: rgba(20, 20, 20, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    padding: 2.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    position: relative; /* Necesario para el brillo */
-    overflow: hidden;   /* Para contener el brillo dentro de los bordes */
+    /* FONDO BLANCO SÓLIDO - Legibilidad garantizada */
+    background: #ffffff;
     
-    /* ESTADO INICIAL DE LANZAMIENTO */
+    /* Borde dorado superior grueso */
+    border-top: 5px solid var(--tb-gold);
+    border-radius: 8px;
+    
+    padding: 3rem 2.5rem;
+    max-width: 950px;
+    margin: 0 auto;
+    
+    /* Sombra pronunciada para separarlo del fondo */
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    
+    position: relative;
+    overflow: hidden;
+    
+    /* Estado inicial animación */
     opacity: 0;
-    transform: scale(0.6) translateY(80px); /* Empieza pequeño y abajo */
-    transition: none; /* Espera a que JS active la clase */
+    transform: scale(0.85) translateY(60px);
+    transition: none;
 }
 
-/* ANIMACIÓN DE REBOTE AL APARECER */
+/* Animación de entrada con rebote */
 .tb-compact-card.tb-pop-in {
     opacity: 1;
-    /* Curva elástica: escala > 1 crea el rebote físico */
-    transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform: scale(1) translateY(0);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* DESTELLO DORADO CRUZANDO LA TARJETA */
+/* Destello dorado al aparecer */
 .tb-compact-card.tb-pop-in::before {
     content: '';
     position: absolute;
-    top: 0; 
-    left: -150%; 
-    width: 100%; 
+    top: 0;
+    left: -100%;
+    width: 80%;
     height: 100%;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(212, 175, 55, 0.3), 
-        transparent
-    );
-    transform: skewX(-25deg);
-    animation: tb-shine-sweep 1.2s ease-out forwards;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+    transform: skewX(-20deg);
+    animation: tb-shine 1.2s ease-out forwards;
     pointer-events: none;
 }
 
-@keyframes tb-shine-sweep {
-    0% { left: -150%; }
-    100% { left: 200%; }
+@keyframes tb-shine {
+    0% { left: -100%; }
+    100% { left: 150%; }
 }
 
-/* Header compacto */
+/* Header */
 .tb-compact-header {
     text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 2.5rem;
     padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .tb-compact-title {
     font-family: 'The Seasons', serif;
-    color: #fff;
-    font-size: 1.8rem;
-    margin-bottom: 0.3rem;
-    letter-spacing: 1px;
+    color: #000000;
+    font-size: 2.4rem;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .tb-compact-subtitle {
     color: var(--tb-gold);
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    padding: 6px 18px;
+    border-radius: 4px;
 }
 
-/* Grid de 2 columnas */
+/* Grid */
 .tb-compact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .tb-col-title {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    color: #000000;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-left: 4px solid var(--tb-gold);
+    padding-left: 15px;
 }
 
-/* Lista limpia sin viñetas */
+/* Lista */
 .tb-list {
     list-style: none;
     padding: 0;
@@ -104,23 +112,23 @@
 }
 
 .tb-list li {
-    color: #ccc;
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
+    color: #333333;
+    margin-bottom: 0.9rem;
+    font-size: 1rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-/* Iconos dorados profesionales */
 .tb-list li i {
     color: var(--tb-gold);
-    width: 20px;
+    font-size: 1.3rem;
+    width: 24px;
     text-align: center;
-    font-size: 1rem;
 }
 
-/* Footer y botón pequeño */
+/* Footer y botón */
 .tb-compact-footer {
     text-align: center;
     margin-top: 1rem;
@@ -129,28 +137,36 @@
 .tb-btn-small {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--tb-gold);
-    border: 1px solid var(--tb-gold);
-    padding: 10px 24px;
-    border-radius: 4px;
+    justify-content: center;
+    gap: 10px;
+    
+    /* Fondo dorado con gradiente */
+    background: linear-gradient(135deg, #d4af37 0%, #c49f2c 100%);
+    
+    color: #000000 !important;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    font-size: 1.05rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
 }
 
 .tb-btn-small:hover {
-    background: var(--tb-gold);
-    color: #000;
+    background: linear-gradient(135deg, #e5c34a 0%, #d4af37 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .tb-compact-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .tb-compact-card { padding: 1.5rem; }
-    .tb-compact-title { font-size: 1.5rem; }
+    .tb-compact-card { padding: 2rem 1.5rem; }
+    .tb-compact-title { font-size: 1.8rem; }
+    .tb-btn-small { width: 100%; }
 }
