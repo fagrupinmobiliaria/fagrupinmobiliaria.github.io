@@ -333,7 +333,7 @@ h6,
 
 /* ==================== HERO ==================== */
 .hero {
-    height: 600px;
+    height: 900px;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -346,8 +346,9 @@ h6,
 }
 
 .hero-carousel {
-    position: absolute;
+    position: fixed;
     inset: 0;
+     z-index: -1;
 }
 
 .carousel-slide {
@@ -449,7 +450,7 @@ h6,
 /* ==================== HERO SUBTITLE ==================== */
 .hero-subtitle-section {
     padding: 40px 0;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.65);
     text-align: center;
     border-bottom: 1px solid var(--light-color);
 }
@@ -2114,5 +2115,146 @@ body.cookie-modal-open {
 
     .cookie-modal-actions {
         flex-direction: column;
+    }
+}
+/* Palacio Section Styles */
+.palacio-section {
+    background: linear-gradient(135deg, #faf8f5 0%, #f0ebe3 100%);
+    padding: 5rem 0;
+}
+
+.section-subtitle {
+    font-family: 'The Seasons', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+
+.palacio-intro-image img {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.palacio-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.palacio-highlight {
+    font-family: 'The Seasons', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 1.2rem;
+    border-left: 4px solid var(--gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+}
+
+.palacio-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.palacio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.palacio-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.palacio-card h4 {
+    font-family: 'The Seasons', serif;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.palacio-card p {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.dominio-item,
+.servicio-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.dominio-item:hover,
+.servicio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.dominio-icon,
+.servicio-icon {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.dominio-item h5,
+.servicio-item h5 {
+    font-family: 'The Seasons', serif;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+}
+
+.dominio-item p,
+.servicio-item p {
+    color: var(--gray);
+    margin: 0;
+}
+
+.btn-outline-gold {
+    background-color: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .palacio-section {
+        padding: 3rem 0;
+    }
+    
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .palacio-highlight {
+        font-size: 1.1rem;
+        padding-left: 1rem;
+    }
+    
+    .palacio-card {
+        padding: 1.5rem;
     }
 }

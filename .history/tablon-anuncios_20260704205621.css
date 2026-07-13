@@ -1,0 +1,132 @@
+/* ==================== TABLÓN MINIMALISTA CORREGIDO ==================== */
+.tb-container {
+    /* Fondo oscuro SÓLIDO para evitar el efecto barro con el body blanco */
+    background-color: #141414; 
+    
+    /* Mantenemos el blur solo como detalle de lujo en los bordes */
+    backdrop-filter: blur(20px); 
+    -webkit-backdrop-filter: blur(20px);
+    
+    max-width: 900px;
+    width: 90%;
+    margin: 6rem auto;
+    border-radius: 16px;
+    
+    /* Borde dorado más definido pero elegante */
+    border: 1px solid rgba(212, 175, 55, 0.4); 
+    
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    text-align: center;
+    
+    /* Aseguramos que nada externo afecte los colores internos */
+    color: #ffffff !important; 
+    
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tb-container.tb-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Cabecera limpia */
+.tb-header {
+    padding: 3.5rem 2rem 1.5rem;
+    background: transparent;
+}
+
+.tb-title {
+    font-family: 'The Seasons', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: #ffffff !important;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.tb-subtitle {
+    color: var(--tb-gold) !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Tarjetas internas con separación clara */
+.tb-grid {
+    padding: 1rem 3rem 3rem;
+    gap: 1.5rem;
+}
+
+.tb-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.tb-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.tb-card h3 {
+    color: var(--tb-gold) !important;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.tb-card li {
+    color: #d1d1d1 !important;
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+}
+
+/* Botón CTA Premium */
+.tb-btn {
+    display: inline-block;
+    background: var(--tb-gold);
+    color: #000000 !important;
+    font-weight: 700;
+    padding: 16px 45px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.tb-btn:hover {
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer interno del tablón */
+.tb-footer {
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
+}
+
+.tb-contact-text {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.tb-brand {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    letter-spacing: 2px;
+}

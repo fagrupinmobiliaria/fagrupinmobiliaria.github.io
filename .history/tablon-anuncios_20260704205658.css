@@ -1,0 +1,125 @@
+/* ==================== TABLÓN MINIMALISTA OSCURO (CORREGIDO) ==================== */
+.tb-container {
+    /* Más opaco para anular el fondo blanco del body y crear el cristal negro real */
+    background: rgba(15, 15, 15, 0.92); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    
+    max-width: 1000px;
+    width: 90%;
+    margin: 6rem auto;
+    border-radius: 24px;
+    
+    /* Borde dorado más definido pero aún sutil */
+    border: 1px solid rgba(212, 175, 55, 0.25); 
+    
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.05); /* Brillo interior superior para efecto cristal */
+    
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    z-index: 10; /* Asegura que flote sobre todo */
+    
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tb-container.tb-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Cabecera */
+.tb-header {
+    padding: 3.5rem 2rem 1.5rem;
+    color: var(--tb-white);
+}
+
+.tb-title {
+    font-family: 'The Seasons', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+.tb-subtitle {
+    color: var(--tb-gold);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Gancho */
+.tb-hook p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.3rem;
+    padding: 1rem 2rem;
+}
+
+/* Tarjetas internas con contraste real */
+.tb-card {
+    background: rgba(255, 255, 255, 0.08); /* Más visible sobre fondo oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e0e0e0;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.tb-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
+}
+
+.tb-card h3 {
+    color: var(--tb-gold);
+    font-family: 'The Seasons', serif;
+    font-size: 1.4rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.tb-card li {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+}
+
+/* Botón CTA premium */
+.tb-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #d4af37 0%, #c49f2c 100%);
+    color: #0a0a0a;
+    font-weight: 700;
+    padding: 18px 45px;
+    font-size: 1.15rem;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.35);
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.tb-btn:hover {
+    background: linear-gradient(135deg, #e5c34a 0%, #d4af37 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.45);
+    color: #000;
+}
+
+.tb-brand {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.85rem;
+    margin-top: 2rem;
+    letter-spacing: 2px;
+}

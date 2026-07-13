@@ -332,23 +332,23 @@ h6,
 }
 
 /* ==================== HERO ==================== */
+/* ==================== HERO RESTAURADO Y OPTIMIZADO ==================== */
 .hero {
-    height: 900px;
+    /* Altura fija robusta para escritorio, pero adaptable */
+    height: 85vh; 
+    min-height: 600px;
+    max-height: 900px;
     position: relative;
     overflow: hidden;
     width: 100%;
-    margin-top: 80px;
-    padding: 0;
-    .company-logo {
-        margin-bottom: 18px;
-        /* Les logos sont déjà centrés par align-items: center sur .company-card */
-    }
+    margin-top: 80px; /* Espacio para el navbar fijo */
+    background-color: #000; /* Fondo negro por si la imagen tarda en cargar */
 }
 
 .hero-carousel {
-    position: fixed;
+    position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 .carousel-slide {
@@ -358,28 +358,32 @@ h6,
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(1.18);
+    
+    /* VOLVEMOS A COVER PARA QUE LLENE LA PANTALLA SIN FRANJAS */
+    background-size: cover; 
+    
+    /* CLAVE: Centramos verticalmente y ajustamos horizontalmente. 
+       Si el logo está más a la izquierda/derecha, cambia 'center' por '30%' o '70%' */
+    background-position: center center; 
+    
+    /* Filtro sutil para dar profundidad sin quemar la imagen */
+    filter: brightness(0.9); 
 }
 
 .carousel-slide.active {
     opacity: 1;
 }
 
-.carousel-slide.slide-1 {
-    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-}
-
-.carousel-slide.slide-2 {
-    background-image: url('images/fa_grup_hero.jpg');
-}
-
+/* Overlay degradado profesional: oscurece abajo para leer texto, deja arriba claro */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.18);
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.1) 0%, 
+        rgba(0,0,0,0.3) 50%, 
+        rgba(0,0,0,0.7) 100%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -389,39 +393,34 @@ h6,
     transform: translate(-50%, -50%);
     z-index: 2;
     text-align: center;
-    max-width: 800px;
-    width: 100%;
+    max-width: 900px;
+    width: 90%;
     padding: 0 20px;
     color: var(--white);
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.hero-content.hero-content-slide-2 {
-    display: none;
+    
+    /* Sombra de texto CRUCIAL para que se lea sobre el logo dorado */
+    text-shadow: 0 4px 12px rgba(0,0,0,0.8);
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 4vw, 3.5rem); /* Texto grande pero controlado */
+    margin-bottom: 0.5rem;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .hero .slogan {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
+    font-size: clamp(1rem, 2.5vw, 1.8rem);
+    margin-bottom: 2rem;
+    font-weight: 400;
     font-style: italic;
     color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.9); /* Sombra extra para el dorado */
 }
 
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
-
+/* Indicadores discretos y elegantes */
 .carousel-indicators {
     position: absolute;
     bottom: 30px;
@@ -433,90 +432,19 @@ h6,
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid var(--gold);
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255,255,255,0.5);
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .indicator.active {
     background-color: var(--gold);
-    transform: scale(1.2);
-}
-
-/* ==================== HERO SUBTITLE ==================== */
-.hero-subtitle-section {
-    padding: 40px 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    text-align: center;
-    border-bottom: 1px solid var(--light-color);
-}
-
-.hero-subtitle-text {
-    font-size: 1.2rem;
-    color: var(--dark-color);
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* ==================== BOTONES ==================== */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    transition: var(--transition);
-    cursor: pointer;
-    border: 2px solid transparent;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--secondary-color);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background-color: #c49f2c;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.btn-secondary {
-    background-color: var(--gray);
-    color: var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: #555555;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.btn-gold {
-    background-color: #111;
-    color: #fff;
-    border: 2px solid transparent;
-}
-
-.btn-gold:hover {
-    background-color: var(--secondary-color);
-    color: #111;
-    border-color: #111;
+    border-color: var(--gold);
+    transform: scale(1.4);
 }
 
 /* ==================== INTRO / GRID UTILS ==================== */

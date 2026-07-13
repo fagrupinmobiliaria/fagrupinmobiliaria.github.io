@@ -1,0 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================== ANIMACIÓN DE ENTRADA IMPACTANTE ==================== */
+
+/* Estado inicial: invisible y pequeño */
+.tb-container {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto rebote elástico */
+    will-change: transform, opacity;
+}
+
+/* Clase que activa la aparición (se añade con JS) */
+.tb-container.tb-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Opcional: Un brillo dorado que recorre el borde al aparecer */
+.tb-container.tb-visible::after {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 18px;
+    background: linear-gradient(45deg, transparent, var(--tb-gold), transparent);
+    z-index: -1;
+    animation: tbShine 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes tbShine {
+    0% { opacity: 0; transform: scale(0.95); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.05); }
+}

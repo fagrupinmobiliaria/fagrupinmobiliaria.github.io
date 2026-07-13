@@ -332,23 +332,32 @@ h6,
 }
 
 /* ==================== HERO ==================== */
+/* ==================== HERO PARALLAX CORREGIDO (FOOTER VISIBLE) ==================== */
 .hero {
-    height: 900px;
+    /* Altura fija para escritorio */
+    height: 85vh; 
+    min-height: 600px;
     position: relative;
-    overflow: hidden;
+    /* IMPORTANTE: overflow visible permite que el contenido fluya, 
+       pero usaremos z-index para manejar las capas */
+    overflow: visible; 
     width: 100%;
-    margin-top: 80px;
-    padding: 0;
-    .company-logo {
-        margin-bottom: 18px;
-        /* Les logos sont déjà centrés par align-items: center sur .company-card */
-    }
+    margin-top: 80px; 
+    background-color: #000;
+    
+    /* Aseguramos que el hero esté por encima del fondo pero permita ver lo de abajo */
+    z-index: 1; 
 }
 
 .hero-carousel {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
+    /* CLAVE: Position fixed para el efecto parallax */
+    position: fixed; 
+    top: 80px; /* Ajuste para el navbar */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* CLAVE CRÍTICA: Lo enviamos al fondo absoluto. 
+                    Así nunca tapará el footer ni ningún otro contenido */
 }
 
 .carousel-slide {
@@ -358,43 +367,45 @@ h6,
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    
+    background-attachment: fixed; /* Refuerzo del efecto parallax */
     background-size: cover;
-    background-position: center;
-    filter: brightness(1.18);
+    background-position: center center;
+    filter: brightness(0.9); 
 }
 
 .carousel-slide.active {
     opacity: 1;
 }
 
-.carousel-slide.slide-1 {
-    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-}
-
-.carousel-slide.slide-2 {
-    background-image: url('images/fa_grup_hero.jpg');
-}
-
+/* Overlay degradado profesional */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.18);
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.1) 0%, 
+        rgba(0,0,0,0.4) 60%, 
+        rgba(0,0,0,0.8) 100%);
     z-index: 1;
+    pointer-events: none;
 }
 
+/* Contenido del hero (Texto) */
 .hero-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 2; /* Por encima del overlay y del carrusel */
     text-align: center;
-    max-width: 800px;
-    width: 100%;
+    max-width: 900px;
+    width: 90%;
     padding: 0 20px;
     color: var(--white);
-    transition: opacity 0.4s ease, visibility 0.4s ease;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
 }
+
+/* ... Resto de estilos de títulos e indicadores igual que antes ... */
 
 .hero-content.hero-content-slide-2 {
     display: none;

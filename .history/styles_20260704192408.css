@@ -332,23 +332,25 @@ h6,
 }
 
 /* ==================== HERO ==================== */
+/* ==================== HERO CORREGIDO ==================== */
 .hero {
-    height: 900px;
+    /* Usamos min-height y vh para asegurar que ocupe toda la pantalla sin cortar */
+    min-height: 100vh; 
+    height: auto;
     position: relative;
     overflow: hidden;
     width: 100%;
-    margin-top: 80px;
+    margin-top: 80px; /* Espacio para el navbar fijo */
     padding: 0;
-    .company-logo {
-        margin-bottom: 18px;
-        /* Les logos sont déjà centrés par align-items: center sur .company-card */
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-carousel {
-    position: fixed;
+    position: absolute;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
 }
 
 .carousel-slide {
@@ -357,166 +359,92 @@ h6,
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(1.18);
+    transition: opacity 1.2s ease-in-out; /* Transición un poco más suave */
+    
+    /* CAMBIO CLAVE: 'contain' asegura que la imagen entera se vea. 
+       Si prefieres que llene la pantalla aunque se corte un poco, usa 'cover' pero ajusta el position */
+    background-size: contain; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Eliminamos el brightness excesivo que "quema" la imagen */
+    filter: brightness(1.05); 
 }
 
 .carousel-slide.active {
     opacity: 1;
 }
 
-.carousel-slide.slide-1 {
-    background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-}
-
+/* Ajuste específico para la slide 2 si quieres que llene más, pero manteniendo el logo visible */
 .carousel-slide.slide-2 {
-    background-image: url('images/fa_grup_hero.jpg');
+    /* Si la imagen original tiene el logo integrado, 'contain' es obligatorio */
+    background-size: contain; 
 }
 
+/* Overlay más sutil para que el texto se lea mejor sin oscurecer la foto */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.18);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative; /* Cambiado a relative para que fluya mejor dentro del flex del .hero */
     z-index: 2;
     text-align: center;
-    max-width: 800px;
-    width: 100%;
-    padding: 0 20px;
+    max-width: 900px;
+    width: 90%;
+    padding: 2rem;
     color: var(--white);
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.hero-content.hero-content-slide-2 {
-    display: none;
+    
+    /* Sombra de texto para mejorar legibilidad sobre cualquier fondo */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 4rem); /* Tamaño responsivo fluido */
     margin-bottom: 1rem;
     font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .hero .slogan {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 300;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
     font-style: italic;
     color: var(--gold);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
 }
 
-.hero p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    font-weight: 300;
-}
-
+/* Indicadores más elegantes */
 .carousel-indicators {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 12px;
     z-index: 10;
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid var(--gold);
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255,255,255,0.8);
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
 }
 
 .indicator.active {
     background-color: var(--gold);
-    transform: scale(1.2);
-}
-
-/* ==================== HERO SUBTITLE ==================== */
-.hero-subtitle-section {
-    padding: 40px 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    text-align: center;
-    border-bottom: 1px solid var(--light-color);
-}
-
-.hero-subtitle-text {
-    font-size: 1.2rem;
-    color: var(--dark-color);
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* ==================== BOTONES ==================== */
-.btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: var(--radius-sm);
-    font-weight: 600;
-    transition: var(--transition);
-    cursor: pointer;
-    border: 2px solid transparent;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--secondary-color);
-    color: var(--white);
-}
-
-.btn-primary:hover {
-    background-color: #c49f2c;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.btn-secondary {
-    background-color: var(--gray);
-    color: var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: #555555;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-.btn-gold {
-    background-color: #111;
-    color: #fff;
-    border: 2px solid transparent;
-}
-
-.btn-gold:hover {
-    background-color: var(--secondary-color);
-    color: #111;
-    border-color: #111;
+    border-color: var(--gold);
+    transform: scale(1.3);
 }
 
 /* ==================== INTRO / GRID UTILS ==================== */

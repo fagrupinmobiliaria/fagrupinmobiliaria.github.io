@@ -333,22 +333,23 @@ h6,
 
 /* ==================== HERO ==================== */
 .hero {
-    height: 900px;
+    /* Mantiene tus 900px en pantallas grandes */
+    height: 900px; 
+    
+    /* Pero permite que se adapte si la pantalla es más pequeña que 900px */
+    min-height: 60vh; 
+    max-height: 900px;
+    
     position: relative;
-    overflow: hidden;
+    overflow: visible; /* Importante para que el z-index -1 funcione bien */
     width: 100%;
     margin-top: 80px;
-    padding: 0;
-    .company-logo {
-        margin-bottom: 18px;
-        /* Les logos sont déjà centrés par align-items: center sur .company-card */
-    }
+    background-color: #000;
+    z-index: 1;
 }
-
 .hero-carousel {
     position: fixed;
     inset: 0;
-    z-index: -1;
 }
 
 .carousel-slide {
