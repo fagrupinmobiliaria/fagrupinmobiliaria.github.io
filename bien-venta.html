@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="bv_page_title">Bien en Venta - FA GRUP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=The+Seasons:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .property-hero {
+            padding: 200px 0 140px;
+            position: relative;
+            background: linear-gradient(110deg, rgba(20, 20, 20, 0.7), rgba(20, 20, 20, 0.45)), url('images/venta_vista_casa.jpg') center 22%/cover no-repeat;
+            color: #fff;
+        }
+
+        .property-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: #111;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .property-hero h1 {
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            margin-bottom: 0.6rem;
+            font-family: 'The Seasons', serif;
+        }
+
+        .property-hero p {
+            max-width: 720px;
+            opacity: 0.95;
+        }
+
+        .property-shell {
+            margin-top: -10px;
+            margin-bottom: 70px;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 1.6rem;
+        }
+
+        .property-panel {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 16px;
+            box-shadow: var(--shadow-hover);
+            padding: 1.35rem;
+        }
+
+        .price-tag {
+            font-family: 'The Seasons', serif;
+            font-size: 2.2rem;
+            color: #111;
+            margin: 0;
+        }
+
+        .property-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 0.8rem;
+        }
+
+        .property-meta span {
+            background: #f0f0f0;
+            border-radius: 999px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.86rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            background: #fafafa;
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            padding: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-item i {
+            color: var(--secondary-color);
+            margin-right: 0.45rem;
+        }
+
+        .property-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        .property-gallery img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid #ececec;
+        }
+
+        .property-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.2rem;
+        }
+
+        .data-block {
+            margin-top: 1rem;
+            background: #fafafa;
+            border: 1px solid #ececec;
+            border-radius: 12px;
+            padding: 0.9rem;
+        }
+
+        .data-block h4 {
+            margin-bottom: 0.6rem;
+            font-size: 1rem;
+        }
+
+        .data-block ul {
+            margin: 0;
+            padding-left: 1.1rem;
+        }
+
+        .data-block li {
+            margin-bottom: 0.35rem;
+        }
+
+        .mortgage-box {
+            background: #131313;
+            color: #fff;
+            border-radius: 14px;
+            padding: 1.1rem;
+            margin-top: 1rem;
+        }
+
+        .mortgage-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.05rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .mortgage-box .form-control {
+            border-radius: 10px;
+        }
+
+        .monthly-result {
+            margin-top: 0.9rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 900px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list,
+            .property-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="images/FA GRUP LOGO.svg" alt="FA GRUP Logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-translate="nav_inicio">Inicio</a></li>
+                <li><a href="servicios.html" class="active" data-translate="nav_servicios">Servicios</a></li>
+                <li><a href="nosotros.html" data-translate="nav_nosotros">Sobre Nosotros</a></li>
+                <li><a href="contacto.html" data-translate="nav_contacto">Contacto</a></li>
+                <li class="language-selector">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" onclick="toggleDropdown(event)" aria-expanded="false">
+                        <img src="images/flag_es.png" id="current-flag" alt="Español">
+                        <span id="current-lang-text">ES</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="setLang('es')"><img src="images/flag_es.png" alt="Español"> ES</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="setLang('ca')"><img src="images/flag_ca.png" alt="Català"> CAT</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="setLang('fr')"><img src="images/flag_fr.png" alt="Français"> FR</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="setLang('en')"><img src="images/flag_en.png" alt="English"> EN</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="property-hero">
+        <div class="container">
+            <span class="property-badge" data-translate="bv_badge">Casa en venta</span>
+            <h1 data-translate="bv_h1">Casa o chalet independiente en venta en el Vendrell - Tarragona</h1>
+            <p data-translate="bv_hero_desc">El Vendrell. Preciosa casa unifamiliar en la zona de Mas Borras con muchos extras y piscina de agua salada.</p>
+        </div>
+    </section>
+
+    <section class="property-shell">
+        <div class="container">
+            <div class="property-grid">
+                <article class="property-panel">
+                    <h2 class="section-title" style="margin-bottom: 0.6rem;" data-translate="bv_summary_title">Resumen del inmueble</h2>
+                    <p class="price-tag" data-translate="bv_price">880.000 EUR</p>
+                    <div class="property-meta">
+                        <span><i class="fas fa-location-dot"></i> <span data-translate="bv_meta_location">El Vendrell - Tarragona</span></span>
+                        <span><i class="fas fa-expand"></i> <span data-translate="bv_meta_area">250 m2 construidos</span></span>
+                        <span><i class="fas fa-bed"></i> <span data-translate="bv_meta_rooms">4 hab.</span></span>
+                        <span><i class="fas fa-car"></i> <span data-translate="bv_meta_garage">Garaje incluido</span></span>
+                        <span><i class="fas fa-tag"></i> <span data-translate="bv_meta_price_m2">3.520 EUR/m2</span></span>
+                    </div>
+
+                    <div class="feature-list">
+                        <div class="feature-item"><i class="fas fa-ruler-combined"></i> <span data-translate="bv_feat_area">250 m2 construidos, 230 m2 utiles</span></div>
+                        <div class="feature-item"><i class="fas fa-bed"></i> <span data-translate="bv_feat_rooms">4 habitaciones</span></div>
+                        <div class="feature-item"><i class="fas fa-bath"></i> <span data-translate="bv_feat_baths">3 banos</span></div>
+                        <div class="feature-item"><i class="fas fa-sun"></i> <span data-translate="bv_feat_terrace">Terraza y balcon</span></div>
+                        <div class="feature-item"><i class="fas fa-car"></i> <span data-translate="bv_feat_garage">Plaza de garaje incluida</span></div>
+                        <div class="feature-item"><i class="fas fa-house"></i> <span data-translate="bv_feat_condition">Segunda mano / buen estado</span></div>
+                        <div class="feature-item"><i class="fas fa-box"></i> <span data-translate="bv_feat_closets">Armarios empotrados</span></div>
+                        <div class="feature-item"><i class="fas fa-compass"></i> <span data-translate="bv_feat_orientation">Orientacion sur</span></div>
+                        <div class="feature-item"><i class="fas fa-person-swimming"></i> <span data-translate="bv_feat_pool">Piscina</span></div>
+                        <div class="feature-item"><i class="fas fa-bolt"></i> <span data-translate="bv_feat_energy">Certificado energetico: no indicado</span></div>
+                    </div>
+
+                    <h3 style="margin-top: 1.2rem; font-size: 1.15rem;" data-translate="bv_desc_title">Descripcion</h3>
+                    <p data-translate="bv_desc_text">Preciosa casa unifamiliar en la zona de Mas Borras, en El Vendrell, con muchos extras y piscina de agua salada.</p>
+
+                    <div class="data-block">
+                        <h4 data-translate="bv_data_title">Datos del anuncio</h4>
+                        <ul>
+                            <li data-translate="bv_data_updated">Anuncio actualizado hace mas de un ano</li>
+                            <li data-translate="bv_data_price">Precio del inmueble: 880.000 EUR</li>
+                            <li data-translate="bv_data_price_m2">Precio por m2: 3.520 EUR/m2</li>
+                            <li data-translate="bv_data_location">Ubicacion: Mas Borras, El Vendrell</li>
+                        </ul>
+                    </div>
+
+                    <div class="property-actions">
+                        <a href="contacto.html" class="btn btn-primary" data-translate="bv_btn_info">Solicitar informacion</a>
+                    </div>
+                </article>
+
+                <aside class="property-panel">
+                    <h2 class="section-title" style="margin-bottom: 0.6rem;" data-translate="bv_photos_title">Fotos del anuncio</h2>
+                    <div class="data-block" style="margin-top: 0.2rem;">
+                        <h4 data-translate="bv_photos_list_title">Listado de fotos disponibles</h4>
+                        <ul>
+                            <li data-translate="bv_photo_1">Piscina</li>
+                            <li data-translate="bv_photo_2">Terraza</li>
+                            <li data-translate="bv_photo_3">Piscina (segunda vista)</li>
+                            <li data-translate="bv_photo_4">Vista general de la casa</li>
+                            <li data-translate="bv_photo_5">7 fotos adicionales en el anuncio original</li>
+                        </ul>
+                    </div>
+
+                    <p style="margin: 0.8rem 0 1rem; color: #555;" data-translate="bv_error_text">Hay algun error en este anuncio? Informanos para corregirlo y ayudar a otras personas.</p>
+
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>FA GRUP</h3>
+                    <p data-translate="footer_slogan">Soluciones integrales para empresas y particulares</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer_services">Servicios</h4>
+                    <ul>
+                        <li><a href="servicios.html#inmobiliaria" data-translate="footer_link_inmobiliaria">Inmobiliaria</a></li>
+                        <li><a href="servicios.html#seguros" data-translate="footer_link_seguros">Seguros</a></li>
+                        <li><a href="servicios.html#viajes" data-translate="footer_link_viajes">Agencia de Viajes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer_company">Empresa</h4>
+                    <ul>
+                        <li><a href="nosotros.html" data-translate="footer_link_about">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html" data-translate="footer_link_contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-translate="footer_contact">Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +34 635 871 358</p>
+                    <p><i class="fas fa-envelope"></i> fagrupinmobiliaria@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Barcelona, España</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FA GRUP. <span data-translate="footer_rights">Todos los derechos reservados</span>.</p>
+                <div class="footer-links">
+                    <a href="aviso-legal.html" data-translate="footer_legal">Aviso Legal</a>
+                    <a href="privacidad.html" data-translate="footer_privacy">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://api.whatsapp.com/send/?phone=34635871358&text&type=phone_number&app_absent=0" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="cookie-modal" id="cookie-consent-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-desc">
+        <div class="cookie-modal-content">
+            <h2 id="cookie-consent-title" data-translate="cookie_title">Política de cookies</h2>
+            <p id="cookie-consent-desc" data-translate="cookie_message">Usamos cookies para mejorar tu experiencia y analizar el uso del sitio. Puedes aceptar o ajustar la configuración.</p>
+            <div class="cookie-modal-actions">
+                <button type="button" class="btn btn-primary" id="cookie-accept" data-translate="cookie_accept">Aceptar</button>
+                <button type="button" class="btn btn-outline" id="cookie-reject" data-translate="cookie_reject">Rechazar</button>
+                <a href="privacidad.html#cookies" class="btn btn-outline" id="cookie-config" data-translate="cookie_config">Ver politica de privacidad</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
