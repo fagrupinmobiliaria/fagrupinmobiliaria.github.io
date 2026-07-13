@@ -54,40 +54,59 @@
     </nav>
 
     <!-- Hero Section with Carousel -->
-    <section class="hero">
-        <div class="hero-carousel">
-            <div class="carousel-slide slide-1 active" style="background-image: url('images/fa_grup_hero.jpg');"></div>
-            <div class="carousel-slide slide-2" style="background-image: url('images/viaje_hero.jpg');">
-                <div class="viaje-caption" data-translate="carousel_viaje">VIAJE</div>
-            </div>
-            <div class="carousel-slide slide-3" style="background-image: url('images/seguros_hero.jpg');">
-                <div class="seguros-caption" data-translate="carousel_seguros">SEGUROS</div>
-            </div>
-            <div class="carousel-slide slide-4" style="background-image: url('images/mision_hero.jpg');">
-                <div class="mision-caption" data-translate="carousel_mision">NUESTRA MISIÓN<br>ÉXITO INMOBILIARIO CON SEGURIDAD Y CERCANÍA.</div>
-            </div>
-            <div class="carousel-slide slide-5" style="background-image: url('images/vision_hero.jpg');">
-                <div class="vision-caption" data-translate="carousel_vision">VISIÓN<br>CONVERTIRSE EN LA INMOBILIARIA DE REFERENCIA, RECONOCIDA POR CERCANÍA, CONFIANZA Y EXCELENCIA INTEGRAL.</div>
-            </div>
-            <div class="carousel-slide slide-6" style="background-image: url('images/siemprecontigo_bis_hero.jpg');">
-                <div class="siemprecontigo-caption" data-translate="carousel_siemprecontigo">SIEMPRE CONTIGO</div>
-            </div>
+<!-- Hero Section with Carousel -->
+<section class="hero">
+    <div class="hero-carousel">
+        <!-- Slide 1: Solo imagen, sin degradado ni texto -->
+        <div class="carousel-slide slide-1 active" style="background-image: url('images/fa_grup_hero.jpg');"></div>
+        
+        <!-- Slide 2: VIAJE -->
+        <div class="carousel-slide slide-2" style="background-image: url('images/viaje_hero.jpg');">
+            <div class="slide-gradient-overlay"></div>
+            <div class="viaje-caption" data-translate="carousel_viaje">VIAJE</div>
         </div>
-        <div class="carousel-indicators">
-            <span class="indicator active" onclick="goToSlide(0)"></span>
-            <span class="indicator" onclick="goToSlide(1)"></span>
-            <span class="indicator" onclick="goToSlide(2)"></span>
-            <span class="indicator" onclick="goToSlide(3)"></span>
-            <span class="indicator" onclick="goToSlide(4)"></span>
-            <span class="indicator" onclick="goToSlide(5)"></span>
+        
+        <!-- Slide 3: SEGUROS -->
+        <div class="carousel-slide slide-3" style="background-image: url('images/seguros_hero.jpg');">
+            <div class="slide-gradient-overlay"></div>
+            <div class="seguros-caption" data-translate="carousel_seguros">SEGUROS</div>
         </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content hero-content-slide-2">
-            <!-- Le contenu sera affiché uniquement sur la deuxième slide via CSS -->
-            <h1 data-translate="hero_title">FA GRUP - Inmobiliaria en Barcelona</h1>
-            <p class="slogan" data-translate="hero_slogan">Siempre Contigo</p>
+        
+        <!-- Slide 4: MISIÓN -->
+        <div class="carousel-slide slide-4" style="background-image: url('images/mision_hero.jpg');">
+            <div class="slide-gradient-overlay"></div>
+            <div class="mision-caption" data-translate="carousel_mision">NUESTRA MISIÓN<br>ÉXITO INMOBILIARIO CON SEGURIDAD Y CERCANÍA.</div>
         </div>
-    </section>
+        
+        <!-- Slide 5: VISIÓN -->
+        <div class="carousel-slide slide-5" style="background-image: url('images/vision_hero.jpg');">
+            <div class="slide-gradient-overlay"></div>
+            <div class="vision-caption" data-translate="carousel_vision">VISIÓN<br>CONVERTIRSE EN LA INMOBILIARIA DE REFERENCIA, RECONOCIDA POR CERCANÍA, CONFIANZA Y EXCELENCIA INTEGRAL.</div>
+        </div>
+        
+        <!-- Slide 6: SIEMPRE CONTIGO -->
+        <div class="carousel-slide slide-6" style="background-image: url('images/siemprecontigo_bis_hero.jpg');">
+            <div class="slide-gradient-overlay"></div>
+            <div class="siemprecontigo-caption" data-translate="carousel_siemprecontigo">SIEMPRE CONTIGO</div>
+        </div>
+    </div>
+    
+    <div class="carousel-indicators">
+        <span class="indicator active" onclick="goToSlide(0)"></span>
+        <span class="indicator" onclick="goToSlide(1)"></span>
+        <span class="indicator" onclick="goToSlide(2)"></span>
+        <span class="indicator" onclick="goToSlide(3)"></span>
+        <span class="indicator" onclick="goToSlide(4)"></span>
+        <span class="indicator" onclick="goToSlide(5)"></span>
+    </div>
+    
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content hero-content-slide-2">
+        <h1 data-translate="hero_title">FA GRUP - Inmobiliaria en Barcelona</h1>
+        <p class="slogan" data-translate="hero_slogan">Siempre Contigo</p>
+    </div>
+</section>
 
     <!-- Hero Subtitle -->
     <section class="hero-subtitle-section">

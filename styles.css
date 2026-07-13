@@ -1,3 +1,38 @@
+/* ==================== DEGRADADOS LATERALES ANIMADOS ==================== */
+
+/* Degradado base para slides con texto a la derecha */
+.slide-gradient-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.2) 20%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.85) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+    animation: gradientBreath 5s ease-in-out infinite alternate;
+}
+
+/* Animación sutil de respiración del degradado */
+@keyframes gradientBreath {
+    0% {
+        opacity: 0.85;
+        width: 48%;
+    }
+    100% {
+        opacity: 1;
+        width: 52%;
+    }
+}
+
+/* ==================== CAPTIONS MEJORADOS ==================== */
+
 /* Carousel caption for VIAJE slide */
 .viaje-caption {
     position: absolute;
@@ -9,10 +44,11 @@
     text-align: right;
     line-height: 1.2;
     letter-spacing: 0.08em;
-    text-shadow: 2px 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
     max-width: 40vw;
     z-index: 2;
     transform: translateY(-50%);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 /* Carousel caption for SEGUROS slide */
@@ -26,10 +62,11 @@
     text-align: right;
     line-height: 1.2;
     letter-spacing: 0.08em;
-    text-shadow: 2px 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
     max-width: 40vw;
     z-index: 2;
     transform: translateY(-50%);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 /* Carousel caption for MISION slide */
@@ -41,12 +78,13 @@
     font-size: 1.1rem;
     font-weight: 700;
     text-align: right;
-    line-height: 1.4;
+    line-height: 1.5;
     letter-spacing: 0.05em;
-    text-shadow: 2px 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
     max-width: 35vw;
     z-index: 2;
     transform: translateY(-50%);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 /* Carousel caption for SIEMPRE CONTIGO slide */
@@ -60,10 +98,11 @@
     text-align: right;
     line-height: 1.2;
     letter-spacing: 0.08em;
-    text-shadow: 2px 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
     max-width: 40vw;
     z-index: 2;
     transform: translateY(-50%);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 /* Carousel caption for VISION slide */
@@ -75,14 +114,54 @@
     font-size: 1.1rem;
     font-weight: 700;
     text-align: right;
-    line-height: 1.4;
+    line-height: 1.6;
     letter-spacing: 0.05em;
-    text-shadow: 2px 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
     max-width: 35vw;
     z-index: 2;
     transform: translateY(-50%);
+    animation: slideInFromRight 0.8s ease-out;
 }
 
+/* Animación de entrada para los textos */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* Responsive: Ajustar en móviles */
+@media (max-width: 768px) {
+    .slide-gradient-overlay {
+        width: 60%;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.3) 40%,
+            rgba(0, 0, 0, 0.9) 100%
+        );
+    }
+    
+    .viaje-caption,
+    .seguros-caption,
+    .siemprecontigo-caption {
+        font-size: 1.5rem;
+        right: 40px;
+        max-width: 50vw;
+    }
+    
+    .mision-caption,
+    .vision-caption {
+        font-size: 0.9rem;
+        right: 40px;
+        max-width: 50vw;
+    }
+}
 /* ==================== RESET Y VARIABLES ==================== */
 * {
     margin: 0;
@@ -359,7 +438,7 @@ h6,
     opacity: 0;
     transition: opacity 1s ease-in-out;
     background-size: cover;
-    background-position: center;
+    background-position: center 10%;
     filter: brightness(1.18);
 }
 
